@@ -1,29 +1,29 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, type Employee } from '@prisma/client'
 const prisma = new PrismaClient()
 
-async function getUsers () {
+async function getUsers (): Promise<Employee[] | null> {
   return await prisma.employee.findMany()
 }
-async function createUser (data: any) {
+async function createUser (data: any): Promise<Employee | null> {
   return await prisma.employee.create({
     data
   })
 }
 
-async function getUser (id: any) {
+async function getUser (id: any): Promise<Employee | null> {
   return await prisma.employee.findUnique({
     where: { id }
   })
 }
 
-async function updateUser (id: any, data: any) {
+async function updateUser (id: any, data: any): Promise<Employee | null> {
   return await prisma.employee.update({
     where: { id },
     data
   })
 }
 
-async function deleteUser (id: any) {
+async function deleteUser (id: any): Promise<Employee | null> {
   return await prisma.employee.delete({
     where: { id }
   })
