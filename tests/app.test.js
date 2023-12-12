@@ -1,5 +1,5 @@
 // api.test.js
-import { test, expect, describe, it } from 'vitest'
+import { test, expect } from 'vitest'
 
 test('GET /', async () => {
   const response = await fetch('http://localhost:3000/')
